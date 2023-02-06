@@ -21,6 +21,8 @@ while True:
     Screen.blit(ground,(0,300))
     Screen.blit(text_surface,(300,50))
     snail_x_pos -= 4
+    if snail_x_pos <= -100:
+        snail_x_pos = 800
     Screen.blit(snail,(snail_x_pos,250))
     pygame.display.update()
     clock.tick(60)
