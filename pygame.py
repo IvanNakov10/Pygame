@@ -12,6 +12,7 @@ ground = pygame.image.load('Pygame/graphics/ground.png').convert()
 font = pygame.font.Font('Pygame/font/Pixeltype.ttf', 50)
 
 text_surface = font.render('My game', False, 'White')
+score_rect = text_surface.get_rect(center = (400, 50))
 
 snail = pygame.image.load('Pygame/graphics/snail/snail1.png').convert_alpha()
 snail_rect = snail.get_rect(bottomright = (600, 300))
@@ -27,7 +28,7 @@ while True:
 
     Screen.blit(surface,(0,0))
     Screen.blit(ground,(0,300))
-    Screen.blit(text_surface,(300,50))
+    Screen.blit(text_surface, score_rect)
     snail_rect.left -= 4
     if snail_rect.left <= 0:
         snail_rect.left = 800
