@@ -19,13 +19,16 @@ snail_rect = snail.get_rect(bottomright = (600, 300))
 
 player = pygame.image.load('Pygame/graphics/Player/player_walk_1.png').convert_alpha()
 player_rect = player.get_rect(midbottom = (80,300))
+player_grav = 0
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-
+    if event.type == pygame.KEYDOWN:
+        if event.type == pygame.K_SPACE:
+            player_grav = -20
     Screen.blit(surface,(0,0))
     Screen.blit(ground,(0,300))
     Screen.blit(text_surface, score_rect)
@@ -33,7 +36,13 @@ while True:
     if snail_rect.left <= 0:
         snail_rect.left = 800
     Screen.blit(snail,snail_rect)
+
+    player_grav += 1
+    player_rect.y += player_grav
     Screen.blit(player, player_rect)
+
+    # keys = pygame.key.get_pressed()
+    # keys[pygame.K_SPACE]:
 
 
     pygame.display.update()
