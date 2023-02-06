@@ -5,8 +5,7 @@ pygame.init()
 Screen = pygame.display.set_mode((800, 400))
 pygame.display.set_caption('Game one')
 clock = pygame.time.Clock()
-surface = pygame.Surface((100, 150))
-surface.fill('Yellow')
+surface = pygame.image.load('Pygame/graphics/Sky.png')
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
