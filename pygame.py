@@ -29,10 +29,18 @@ while True:
     keys = pygame.key.get_pressed()
     if keys[pygame.K_SPACE] and player_rect.bottom >= 300:
             player_grav = -20
+    if keys[pygame.K_d]:
+        player_rect.right += 4
+        if player_rect.right >= 800:
+             player_rect.right = 0
+    if keys[pygame.K_a]:
+        player_rect.right -= 4
+        if player_rect.right >= 0:
+             player_rect.right = 800
     Screen.blit(surface,(0,0))
     Screen.blit(ground,(0,300))
     Screen.blit(text_surface, score_rect)
-    snail_rect.left -= 4
+    snail_rect.left += 4
     if snail_rect.left <= 0:
         snail_rect.left = 800
     Screen.blit(snail,snail_rect)
