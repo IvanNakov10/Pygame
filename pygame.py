@@ -26,8 +26,8 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-    if event.type == pygame.KEYDOWN:
-        if event.type == pygame.K_SPACE:
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_SPACE] and player_rect.bottom >= 300:
             player_grav = -20
     Screen.blit(surface,(0,0))
     Screen.blit(ground,(0,300))
@@ -39,10 +39,10 @@ while True:
 
     player_grav += 1
     player_rect.y += player_grav
+    if player_rect.bottom >= 300:
+        player_rect.bottom = 300
     Screen.blit(player, player_rect)
 
-    # keys = pygame.key.get_pressed()
-    # keys[pygame.K_SPACE]:
 
 
     pygame.display.update()
